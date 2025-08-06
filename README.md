@@ -17,7 +17,7 @@ This is a simple Java-based port scanner that scans a specified range of ports o
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/java-port-scanner.git
+    git clone https://github.com/will-bates11/java-port-scanner.git
     cd java-port-scanner
     ```
 
