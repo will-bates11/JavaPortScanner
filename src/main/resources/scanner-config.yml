@@ -1,0 +1,61 @@
+global:
+  defaultTimeout: 1000
+  defaultThreads: 100
+  maxRetries: 3
+  retryDelay: 1000
+  excludedPorts: [0, 1024, 3306]  # Example: exclude system ports and MySQL
+
+profiles:
+  quick:
+    name: quick
+    description: Quick scan of common ports
+    host: localhost
+    startPort: 1
+    endPort: 1024
+    timeout: 500
+    threads: 50
+    excludedPorts: []
+    environment:
+      mode: fast
+      aggressive: "false"
+
+  full:
+    name: full
+    description: Full port range scan
+    host: localhost
+    startPort: 1
+    endPort: 65535
+    timeout: 1000
+    threads: 100
+    excludedPorts: []
+    environment:
+      mode: thorough
+      aggressive: "false"
+
+  stealth:
+    name: stealth
+    description: Stealthy scan with longer delays
+    host: localhost
+    startPort: 1
+    endPort: 65535
+    timeout: 2000
+    threads: 10
+    excludedPorts: []
+    environment:
+      mode: stealth
+      aggressive: "false"
+
+  targeted:
+    name: targeted
+    description: Scan specific port ranges
+    host: localhost
+    startPort: 20
+    endPort: 1024
+    timeout: 1000
+    threads: 50
+    excludedPorts: [25, 587]  # Example: exclude mail ports
+    environment:
+      mode: normal
+      aggressive: "false"
+
+defaultProfile: quick
